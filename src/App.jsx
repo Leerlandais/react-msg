@@ -10,7 +10,7 @@ function App() {
           <h1>Livre d&apos;or</h1>
           <div className="upperSection">
               <div className="imageDiv">
-                  <img src="img/email.png" alt="emailLogo" />
+                  <img src="../public/images/email.png" alt="emailLogo" />
               </div>
           <form action="" method="POST" className="myForm" id="myForm">
               <h2 id="h2Message">Laissez-nous un message</h2>
