@@ -9,6 +9,7 @@ export default function MessageList({id, firstname, surname, email, text}) {
             </h4>
             <p>{text}</p>
         </div>
+
     )
 }
 
