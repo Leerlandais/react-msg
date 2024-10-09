@@ -6,13 +6,12 @@ function App() {
 
   return (
       <>
-
           <h1>Livre d&apos;or</h1>
           <div className="upperSection">
               <div className="imageDiv">
                   <img src="../public/images/email.png" alt="emailLogo" />
               </div>
-          <form action="" method="POST" className="myForm" id="myForm">
+          <form method="POST" className="myForm" id="myForm">
               <h2 id="h2Message">Laissez-nous un message</h2>
               <div className="formDiv div_firstname">
                   <label htmlFor="firstname" id="label_firstname" className="inputLabel">Prénom</label>
