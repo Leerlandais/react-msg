@@ -1,8 +1,10 @@
 
 export default function LikeButton() {
     return (
-        <div>
-            Like Button
-        </div>
+        <>
+            <button className="like-button">
+                <i className="fa fa-thumbs-up"></i>
+            </button>
+        </>
     )
 }
