@@ -117,7 +117,7 @@ form h2 {
   align-items: center;
 }
 .messageHolder {
-  margin-left: 25px;
+  margin-left: 5%;
   border: 2px solid black;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -169,6 +169,7 @@ h4 {
     padding-bottom: 5px;
   }
 
+
   .formDiv {
     width: 90%;
     display: flex;
@@ -212,7 +213,9 @@ h4 {
     flex-direction: column;
     align-items: center;
   }
-
+  .messageHolder {
+    margin-left: 25%;
+  }
   .upperSection {
     background-color: #f4d292;
     display: flex;
@@ -288,8 +291,20 @@ h4 {
   }
 }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1300px) and (max-width: 1600px) {
   textarea {
     max-width: 120%;
+  }
+  .messageHolder {
+    margin-left: 25%;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  textarea {
+    max-width: 120%;
+  }
+  .messageHolder {
+    margin-left: 15%;
   }
 }
