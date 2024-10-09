@@ -10,15 +10,16 @@ function App() {
 
     const [messages, setMessages] = useState([])
 
-        function addMessage(text) {
+        function addMessage(data) {
             setMessages((currentMessages) => {
                 return [
                     ...currentMessages,
                     { id: crypto.randomUUID(),
-                        text: text }
+                        ...data}
                 ]
             })
         }
+
 console.log(messages)
   return (
       <>
