@@ -6,6 +6,7 @@ export default function MessageForm(props) {
     const [firstName, setFirstName] = useState("Lee");
     const [lastName, setLastName] = useState("Brennan");
     const [userMail, setUserMail] = useState("lee@leerlandais.com");
+    const [msgLength, setMsgLength] = useState("0");
 
     function formSubmission(e) {
         // Can't have a form without a preventDef :-D
@@ -27,6 +28,7 @@ export default function MessageForm(props) {
         setFirstName("");
         setLastName("");
         setUserMail("");
+        setMsgLength("0");
     }
 
     return (
@@ -87,7 +89,10 @@ export default function MessageForm(props) {
                     cols="20"
                     rows="2"
                     value={newMsg}
-                    onChange={(e) => setNewMsg(e.target.value)}
+                    onChange={(e) => {
+                        setNewMsg(e.target.value);
+                        setMsgLength(e.target.value.length)
+                }}
                 />
             </div>
 
@@ -96,7 +101,7 @@ export default function MessageForm(props) {
                     Envoyer
                 </button>
                 <span className="lengthSpan" id="lengthSpan">
-                    0
+                    {msgLength}
                 </span>
                 <span className="lengthSpan">/600</span>
             </div>
