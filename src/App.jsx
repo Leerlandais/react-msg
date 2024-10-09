@@ -3,24 +3,22 @@ import './App.css'
 import {useState} from "react";
 
 // component imports
-import './components/MessageForm.jsx';
 import MessageForm from "./components/MessageForm.jsx";
-
+import MessageList from "./components/MessageList.jsx";
 
 function App() {
 
-
     const [messages, setMessages] = useState([])
 
-function addMessage(text) {
-    setMessages((currentMessages) => {
-        return [
-            ...currentMessages,
-            { id: crypto.randomUUID(),
-                text: text }
-        ]
-    })
-}
+        function addMessage(text) {
+            setMessages((currentMessages) => {
+                return [
+                    ...currentMessages,
+                    { id: crypto.randomUUID(),
+                        text: text }
+                ]
+            })
+        }
 console.log(messages)
   return (
       <>
@@ -29,9 +27,7 @@ console.log(messages)
               <div className="imageDiv">
                   <img src="../public/images/email.png" alt="emailLogo"/>
               </div>
-
-                <MessageForm onSubmit={addMessage} />
-
+              <MessageForm onSubmit={addMessage} />
           </div>
 
           <div className="lowerSection">
@@ -44,14 +40,7 @@ console.log(messages)
                       }
                   </h3>
                   {messages.map(message => {
-                      return (
-                          <div key={message.id}
-                              className="messageHolder">
-                              <h4><span className="italic" title={message.id}>{message.firstname }</span>
-                              </h4>
-                              <p>{message.text}</p>
-                          </div>
-                      )
+                    return <MessageList {...message} key={message.id} />
                   })}
 
 
