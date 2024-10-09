@@ -14,11 +14,13 @@ function App() {
 
     function formSubmission(e) {
         e.preventDefault()
-        setMessages([
-            ...messages,
-            { id: crypto.randomUUID(),
-              title: newMsg }
-        ])
+        setMessages((currentMessages) => {
+            return [
+                ...currentMessages,
+                { id: crypto.randomUUID(),
+                    title: newMsg }
+            ]
+        })
     }
 console.log(messages)
   return (
@@ -100,8 +102,25 @@ console.log(messages)
               </form>
 
           </div>
-      </>
-  )
-}
 
-export default App
+          <div className="lowerSection">
+              <div className="prevMessages">
+                  <h3 id="prevMessHead">
+                      <div className="messageHolder">
+                          <h4><span className="italic">Pas des messages à afficher</span></h4>
+                      </div>
+                  </h3>
+                  <div
+                      className="messageHolder">
+                      <h4><span className="italic" title=""></span>
+                      </h4>
+                      <p></p>
+                  </div>
+
+              </div>
+          </div>
+          </>
+          )
+          }
+
+          export default App
