@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function MessageList({ id, text }) {
     return (
 
@@ -9,3 +11,8 @@ export default function MessageList({ id, text }) {
         </div>
     )
 }
+
+MessageList.propTypes = {
+    id: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
+};
