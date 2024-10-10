@@ -25,6 +25,10 @@ h1 {
   margin-bottom: 0;
 }
 
+.delBtnHolder {
+  float: left;
+}
+
 .hidden {
   opacity: 0;
 }
@@ -152,8 +156,9 @@ h4 {
   text-align: center;
 }
 
-.like-button {
+.opinion-button {
   float: right;
+  margin-left: 20px;
 }
 
 @media screen and (min-width: 480px) and (max-width: 960px) {

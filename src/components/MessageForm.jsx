@@ -2,10 +2,10 @@ import { useState } from "react";
 
 export default function MessageForm(props) {
     // Need a state for each input - NOTE TO SELF: Find out if it's possible to do these together, for example const [newMsg, setNewMsg] = useState([])
-    const [newMsg, setNewMsg] = useState("Message");
-    const [firstName, setFirstName] = useState("Lee");
-    const [lastName, setLastName] = useState("Brennan");
-    const [userMail, setUserMail] = useState("lee@leerlandais.com");
+    const [newMsg, setNewMsg] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [userMail, setUserMail] = useState("");
     const [msgLength, setMsgLength] = useState("0");
 
     function formSubmission(e) {

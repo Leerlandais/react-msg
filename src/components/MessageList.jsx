@@ -1,15 +1,24 @@
 import PropTypes from "prop-types";
-import LikeButton from "./LikeButton.jsx";
+import OpinionButton from "./OpinionButton.jsx";
+import DeleteButton from "./DeleteButton.jsx";
 
-export default function MessageList({id, firstname, surname, email, text}) {
+export default function MessageList({id, firstname, surname, email, text, onDelete}) {
+
+
     return (
-        <div key={id}
-             className="messageHolder">
-            <h4><span className="italic" title={email}>{firstname} {surname}</span>
-            </h4>
-            <p>{text}</p>
-            <LikeButton />
-        </div>
+        <>
+
+            <div key={id}
+                 className="messageHolder">
+                <DeleteButton onDelete={onDelete} id={id} />
+                <h4><span className="italic" title={email}>{firstname} {surname}</span>
+                </h4>
+                <p>{text}</p>
+                <OpinionButton className="fa fa-thumbs-up" />
+                <OpinionButton className="fa fa-thumbs-down" />
+
+            </div>
+        </>
     )
 }
 
