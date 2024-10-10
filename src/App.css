@@ -30,7 +30,7 @@ h1 {
 }
 /*                                ------- FORM SELECTORS MOBILE ---------           */
 form {
-  max-width: 60%;
+  max-width: 40%;
   max-height: 70%;
   border: 2px solid black;
   border-radius: 20px;
@@ -152,7 +152,9 @@ h4 {
   text-align: center;
 }
 
-
+.like-button {
+  float: right;
+}
 
 @media screen and (min-width: 480px) and (max-width: 960px) {
 
@@ -222,7 +224,6 @@ h4 {
     flex-direction: row;
     align-items: center;
     width: 100%;
-
   }
 
   h1 {
@@ -307,4 +308,8 @@ h4 {
   .messageHolder {
     margin-left: 15%;
   }
+  .imageDiv {
+    float: left;
+  }
+
 }

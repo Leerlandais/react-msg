@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import LikeButton from "./LikeButton.jsx";
 
 export default function MessageList({id, firstname, surname, email, text}) {
     return (
@@ -7,9 +8,7 @@ export default function MessageList({id, firstname, surname, email, text}) {
             <h4><span className="italic" title={email}>{firstname} {surname}</span>
             </h4>
             <p>{text}</p>
-        <div>
-            Like Button
-        </div>
+            <LikeButton />
         </div>
     )
 }
