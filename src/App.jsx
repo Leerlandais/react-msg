@@ -1,6 +1,6 @@
 // dependencies imports
 import './App.css'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 // component imports
 import MessageForm from "./components/MessageForm.jsx";
@@ -8,7 +8,15 @@ import MessageList from "./components/MessageList.jsx";
 
 function App() {
 
-    const [messages, setMessages] = useState([])
+    const [messages, setMessages] = useState(() => {
+        const storedMessages = localStorage.getItem("messages");
+            if (storedMessages == null) return [];
+            return JSON.parse(storedMessages);
+    })
+
+    useEffect(() =>{
+        localStorage.setItem("messages", JSON.stringify(messages));
+    },[messages])
 
         function addMessage(data) {
             setMessages((currentMessages) => {
