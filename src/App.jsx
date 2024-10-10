@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 import MessageForm from "./components/MessageForm.jsx";
 import MessageList from "./components/MessageList.jsx";
 
+
 function App() {
 
     const [messages, setMessages] = useState(() => {
@@ -26,6 +27,12 @@ function App() {
                         ...data}
                 ]
             })
+        }
+
+        function deleteMessage(id) {
+        setMessages((currentMessages) => {
+            return currentMessages.filter(message => message.id !== id)
+        })
         }
 
 console.log(messages)
@@ -49,9 +56,12 @@ console.log(messages)
                       }
                   </h3>
                   {messages.map(message => {
-                    return <MessageList {...message} key={message.id} />
+                    return(
+                        <>
+                        <MessageList {...message} key={message.id} onDelete={deleteMessage} />
+                        </>
+                  )
                   })}
-
 
               </div>
           </div>

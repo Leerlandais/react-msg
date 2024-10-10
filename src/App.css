@@ -25,6 +25,10 @@ h1 {
   margin-bottom: 0;
 }
 
+.delBtnHolder {
+  float: left;
+}
+
 .hidden {
   opacity: 0;
 }
