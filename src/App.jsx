@@ -13,7 +13,7 @@ function App() {
             if (storedMessages == null) return [];
             return JSON.parse(storedMessages);
     })
-
+    // Any changes cause this to be run, saving everything to LS
     useEffect(() =>{
         localStorage.setItem("messages", JSON.stringify(messages));
     },[messages])

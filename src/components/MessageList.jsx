@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import LikeButton from "./LikeButton.jsx";
+import OpinionButton from "./OpinionButton.jsx";
 
 export default function MessageList({id, firstname, surname, email, text}) {
     return (
@@ -8,7 +8,8 @@ export default function MessageList({id, firstname, surname, email, text}) {
             <h4><span className="italic" title={email}>{firstname} {surname}</span>
             </h4>
             <p>{text}</p>
-            <LikeButton />
+            <OpinionButton className="fa fa-thumbs-up" />
+            <OpinionButton className="fa fa-thumbs-down" />
         </div>
     )
 }
