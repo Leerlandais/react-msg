@@ -1,8 +1,9 @@
 
-export default function OpinionButton({className}) {
+export default function OpinionButton({className, onClick}) {
+
     return (
         <>
-            <button className="opinion-button">
+            <button className="opinion-button" onClick={onClick}>
                 <i className={className}></i>
             </button>
         </>
