@@ -24,6 +24,8 @@ function App() {
                 return [
                     ...currentMessages,
                     { id: crypto.randomUUID(),
+                        likeCount: 0,
+                        hateCount: 0,
                         ...data}
                 ]
             })
@@ -35,7 +37,23 @@ function App() {
         })
         }
 
-console.log(messages)
+    function updateMessage(id, newLikeCount, newHateCount) {
+        setMessages((currentMessages) => {
+            return currentMessages.map(message => {
+                if (message.id === id) {
+                    return {
+                        ...message,
+                        likeCount: newLikeCount,
+                        hateCount: newHateCount
+                    };
+                }
+                return message;
+            });
+        });
+    }
+
+
+    console.log(messages)
   return (
       <>
           <h1>Livre d&apos;Or</h1>
@@ -58,7 +76,16 @@ console.log(messages)
                   {messages.map(message => {
                     return(
                         <>
-                        <MessageList {...message} key={message.id} onDelete={deleteMessage} />
+                        <MessageList key={message.id}
+                                     id={message.id}
+                                     firstname={message.firstname}
+                                     surname={message.surname}
+                                     email={message.email}
+                                     text={message.text}
+                                     likeCount={message.likeCount}
+                                     hateCount={message.hateCount}
+                                     onDelete={deleteMessage}
+                                     onUpdate={updateMessage}  />
                         </>
                   )
                   })}
