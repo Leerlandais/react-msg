@@ -28,6 +28,17 @@ export default function MessageList({id,
         onUpdate(id, localLikeCount, newHateCount); // Send the updated counts to the parent
     }
 
+    function handleLike() {
+        const newLikeCount = localLikeCount + 1;
+        setLocalLikeCount(newLikeCount);
+        onUpdate(id, newLikeCount, localHateCount);
+    }
+
+    function handleHate() {
+        const newHateCount = localHateCount + 1;
+        setLocalHateCount(newHateCount);
+        onUpdate(id, localLikeCount, newHateCount);
+    }
     return (
         <div className="messageHolder">
             <DeleteButton onDelete={onDelete} id={id}/>

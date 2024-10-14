@@ -73,22 +73,23 @@ function App() {
                         </div>
                       }
                   </h3>
-                  <>
-                      {messages.map(message => (
-                          <MessageList
-                              key={message.id}
-                              id={message.id}
-                              firstname={message.firstname}
-                              surname={message.surname}
-                              email={message.email}
-                              text={message.text}
-                              likeCount={message.likeCount}
-                              hateCount={message.hateCount}
-                              onDelete={deleteMessage}
-                              onUpdate={updateMessage}
-                          />
-                      ))}
-                  </>
+                  {messages.map(message => {
+                    return(
+                        <>
+                        <MessageList key={message.id}
+                                     id={message.id}
+                                     firstname={message.firstname}
+                                     surname={message.surname}
+                                     email={message.email}
+                                     text={message.text}
+                                     likeCount={message.likeCount}
+                                     hateCount={message.hateCount}
+                                     onDelete={deleteMessage}
+                                     onUpdate={updateMessage}  />
+                        </>
+                  )
+                  })}
+
               </div>
           </div>
       </>
