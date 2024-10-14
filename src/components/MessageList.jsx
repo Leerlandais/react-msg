@@ -3,38 +3,46 @@ import OpinionButton from "./OpinionButton.jsx";
 import DeleteButton from "./DeleteButton.jsx";
 import {useState} from "react";
 
-export default function MessageList({ id, firstname, surname = "", email, text, onDelete }) {
-    const [hateCount, setHateCount] = useState(0);
-    const [likeCount, setLikeCount] = useState(0);
+export default function MessageList({id,
+                                     firstname,
+                                     surname = "",
+                                     email,
+                                     text,
+                                     likeCount,
+                                     hateCount,
+                                     onDelete,
+                                     onUpdate
+                                    }) {
+    const [localLikeCount, setLocalLikeCount] = useState(likeCount);
+    const [localHateCount, setLocalHateCount] = useState(hateCount);
+
+    function handleLike() {
+        const newLikeCount = localLikeCount + 1;
+        setLocalLikeCount(newLikeCount);
+        onUpdate(id, newLikeCount, localHateCount); // Send the updated counts to the parent
+    }
+
+    function handleHate() {
+        const newHateCount = localHateCount + 1;
+        setLocalHateCount(newHateCount);
+        onUpdate(id, localLikeCount, newHateCount); // Send the updated counts to the parent
+    }
 
     return (
         <div className="messageHolder">
-            <DeleteButton onDelete={onDelete} id={id} />
-
-            <h4>
-                <span className="italic" title={email}>
-                    {firstname} {surname}
-                </span>
-            </h4>
-
+            <DeleteButton onDelete={onDelete} id={id}/>
+            <h4><span className="italic" title={email}>{firstname} {surname}</span></h4>
             <p>{text}</p>
-
-            <div className="opinion-buttons">
-                <span className="opinionCounter">{likeCount}</span>
-
-                <OpinionButton
-                    className="fa fa-thumbs-down"
-                    onClick={() => setHateCount(hateCount + 1)}
-                />
-                <OpinionButton
-                    className="fa fa-thumbs-up"
-                    onClick={() => setLikeCount(likeCount + 1)}
-                />
-                <span className="opinionCounter">{hateCount}</span>
-            </div>
+<div className="opinion-buttons">
+    <span className="opinionCounter">{likeCount}</span>
+            <OpinionButton className="fa fa-thumbs-up" onClick={handleLike}/>
+            <OpinionButton className="fa fa-thumbs-down" onClick={handleHate}/>
+    <span className="opinionCounter">{hateCount}</span>
+</div>
         </div>
     );
 }
+
 
 
 MessageList.propTypes = {
